@@ -8,7 +8,7 @@ const NAV = [
   { to: "/teaching", label: "Teaching" },
 ] as const;
 
-export const SITE_NAME = "Eva Wang";
+export const SITE_NAME = "Dan Ai";
 
 export function SiteLayout({ title, children }: { title?: string; children: ReactNode }) {
   return (
