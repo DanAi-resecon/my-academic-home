@@ -5,17 +5,17 @@ import portrait from "@/assets/portrait.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Eva Wang | Public Finance Economist" },
+      { title: "Dan Ai | Resource Economics" },
       {
         name: "description",
         content:
-          "Eva Wang is a public finance economist working on optimal taxation, environmental policy, and empirical analysis of corrective taxes.",
+          "Dan Ai is a Ph.D. candidate in Resource Economics at the University of Massachusetts Amherst, affiliated with the NSF-funded ELEVATE program.",
       },
-      { property: "og:title", content: "Eva Wang | Public Finance Economist" },
+      { property: "og:title", content: "Dan Ai | Resource Economics" },
       {
         property: "og:description",
         content:
-          "Academic homepage of Eva Wang: research in public finance, energy and environmental economics.",
+          "Academic homepage of Dan Ai: Ph.D. candidate in Resource Economics at UMass Amherst, working on the energy transition.",
       },
       { property: "og:type", content: "profile" },
       { name: "twitter:card", content: "summary_large_image" },
