@@ -30,7 +30,7 @@ function Bio() {
       <div className="grid gap-12 md:grid-cols-[minmax(0,380px)_minmax(0,1fr)]">
         <img
           src={portrait}
-          alt="Portrait of Eva Wang"
+          alt="Portrait of Dan Ai"
           width={768}
           height={1024}
           className="w-full max-w-[380px] object-cover"
@@ -39,15 +39,11 @@ function Bio() {
         <div className="space-y-5">
           <h2 className="font-serif text-2xl font-semibold text-brand">Welcome to my website.</h2>
           <p className="leading-relaxed text-foreground/90">
-            I am a Public Finance Economist whose research combines optimal taxation theory and
-            empirical analysis. I received my Ph.D. in Economics from the University of Michigan in
-            2026.
-          </p>
-          <p className="leading-relaxed text-foreground/90">
-            My research interests lie in Public Finance and Energy and Environmental Economics. My
-            work examines the design and consequences of corrective taxes and subsidies, with
-            applications to environmental policy, clean technology adoption, and health-related
-            consumption.
+            I am a Ph.D. candidate in Resource Economics at the University of Massachusetts Amherst.
+            I'm also affiliated with ELEVATE, an NSF funded research program focused on the technical,
+            social, and climate challenges of the energy transition. My interdisciplinary background
+            includes a bachelor's degree in Computer Science and a master's degree in Applied Economics
+            from China before joining UMass Amherst.
           </p>
           <p className="leading-relaxed text-foreground/90">
             You can view my{" "}
@@ -59,10 +55,10 @@ function Bio() {
           <p className="leading-relaxed text-foreground/90">
             Contact:{" "}
             <a
-              href="mailto:yiyunw@umich.edu"
+              href="mailto:dai@umass.edu"
               className="font-serif text-brand underline underline-offset-2"
             >
-              yiyunw@umich.edu
+              dai@umass.edu
             </a>
           </p>
         </div>
