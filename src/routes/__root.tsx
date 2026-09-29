@@ -77,17 +77,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Eva Wang | Public Finance Economist" },
+      { title: "Dan Ai | Resource Economics" },
       {
         name: "description",
         content:
-          "Academic homepage of Eva Wang, public finance economist working on optimal taxation and environmental policy.",
+          "Academic homepage of Dan Ai, a Ph.D. candidate in Resource Economics at the University of Massachusetts Amherst.",
       },
-      { name: "author", content: "Eva Wang" },
-      { property: "og:title", content: "Eva Wang | Public Finance Economist" },
+      { name: "author", content: "Dan Ai" },
+      { property: "og:title", content: "Dan Ai | Resource Economics" },
       {
         property: "og:description",
-        content: "Research, CV, and teaching of economist Eva Wang.",
+        content: "Research, CV, and teaching of resource economist Dan Ai.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

@@ -1,19 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
+import cvAsset from "@/assets/dan-ai-cv.pdf.asset.json";
 
 export const Route = createFileRoute("/cv")({
   head: () => ({
     meta: [
-      { title: "CV | Eva Wang" },
+      { title: "CV | Dan Ai" },
       {
         name: "description",
         content:
-          "Curriculum vitae of Eva Wang: education, academic appointments, awards, and professional service in economics.",
+          "Curriculum vitae of Dan Ai: education, research, teaching, awards, affiliations, and technical skills in resource economics.",
       },
-      { property: "og:title", content: "CV | Eva Wang" },
+      { property: "og:title", content: "CV | Dan Ai" },
       {
         property: "og:description",
-        content: "Education, appointments, grants, and service record of economist Eva Wang.",
+        content: "Education, research, teaching, awards, and skills of resource economist Dan Ai.",
       },
       { property: "og:type", content: "profile" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -26,31 +27,38 @@ const SECTIONS = [
   {
     heading: "Education",
     items: [
-      { primary: "Ph.D. in Economics, University of Michigan", meta: "2026" },
-      { primary: "M.A. in Economics, University of Michigan", meta: "2022" },
-      { primary: "B.A. in Economics, Peking University", meta: "2020" },
+      { primary: "Ph.D. Candidate in Resource Economics, University of Massachusetts Amherst", meta: "Amherst, USA" },
+      { primary: "M.S. in Applied Economics, Macau University of Science and Technology", meta: "Macau, China" },
+      { primary: "B.S. in Computer Science and Technology, Langfang Normal University", meta: "Langfang, China" },
     ],
   },
   {
     heading: "Fields of Interest",
     items: [
-      { primary: "Public Finance", meta: "" },
       { primary: "Energy and Environmental Economics", meta: "" },
       { primary: "Applied Microeconomics", meta: "" },
+      { primary: "Applied Econometrics", meta: "" },
     ],
   },
   {
     heading: "Awards and Fellowships",
     items: [
-      { primary: "Rackham Predoctoral Fellowship", meta: "2025" },
-      { primary: "Department of Economics Summer Research Grant", meta: "2023" },
+      { primary: "Graduate Fellows Travel Grant, UMass Amherst Graduate School", meta: "2025" },
+      { primary: "Best Student Conference Paper, NAREA", meta: "2024" },
+      { primary: "Graduate Fellows Travel Grant, UMass Amherst Graduate School", meta: "2024" },
+      { primary: "Research Enhancement and Leadership (REAL) Fellow, UMass Amherst Graduate School", meta: "2021–2025" },
     ],
   },
   {
-    heading: "Professional Service",
+    heading: "Affiliation",
     items: [
-      { primary: "Referee, Journal of Public Economics", meta: "2024–" },
-      { primary: "Organizer, Public Finance Student Seminar", meta: "2023–2025" },
+      { primary: "Elevating Equity Values in the Transition of the Energy System (ELEVATE), U.S. National Science Foundation", meta: "" },
+    ],
+  },
+  {
+    heading: "Skills",
+    items: [
+      { primary: "Java, MATLAB, Python, R, Stata, ArcGIS, LaTeX, Google Earth Engine", meta: "" },
     ],
   },
 ];
@@ -60,9 +68,14 @@ function CV() {
     <SiteLayout title="CV">
       <div className="max-w-3xl space-y-12">
         <p className="text-foreground/90">
-          A full PDF version of my curriculum vitae is available{" "}
-          <a href="#" className="text-brand underline underline-offset-2">
-            here
+          Download the full version of my{" "}
+          <a
+            href={cvAsset.url}
+            target="_blank"
+            rel="noreferrer"
+            className="text-brand underline underline-offset-2"
+          >
+            curriculum vitae (PDF)
           </a>
           .
         </p>

@@ -4,16 +4,16 @@ import { SiteLayout } from "@/components/SiteLayout";
 export const Route = createFileRoute("/teaching")({
   head: () => ({
     meta: [
-      { title: "Teaching | Eva Wang" },
+      { title: "Teaching | Dan Ai" },
       {
         name: "description",
         content:
-          "Courses taught and teaching assistantships in public finance, environmental economics, and econometrics.",
+          "Teaching experience of Dan Ai at the University of Massachusetts Amherst and Macau University of Science and Technology.",
       },
-      { property: "og:title", content: "Teaching | Eva Wang" },
+      { property: "og:title", content: "Teaching | Dan Ai" },
       {
         property: "og:description",
-        content: "Teaching record: instructor and graduate student instructor experience.",
+        content: "Course instructor and teaching assistant experience in economics, statistics, and financial analysis.",
       },
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -23,13 +23,20 @@ export const Route = createFileRoute("/teaching")({
 });
 
 const INSTRUCTOR = [
-  { course: "Principles of Microeconomics (ECON 101)", meta: "Instructor, Summer 2025" },
+  { course: "Price Theory", meta: "University of Massachusetts Amherst" },
 ];
 
-const ASSISTANT = [
-  { course: "Public Economics (ECON 481)", meta: "Graduate Student Instructor, Fall 2024" },
-  { course: "Environmental Economics (ECON 370)", meta: "Graduate Student Instructor, Winter 2024" },
-  { course: "Introduction to Econometrics (ECON 451)", meta: "Graduate Student Instructor, Fall 2023" },
+const UMASS_ASSISTANT = [
+  "Cost Benefit Analysis",
+  "Financial Analysis for Consumers and Firms",
+  "Managerial Economics",
+  "Intermediate Statistics for Business and Economics",
+  "Introductory Statistics for the Social Sciences",
+];
+
+const MUST_ASSISTANT = [
+  "Microeconomics",
+  "Macroeconomics",
 ];
 
 function Teaching() {
@@ -38,7 +45,7 @@ function Teaching() {
       <div className="max-w-3xl space-y-12">
         <section>
           <h2 className="border-b border-border pb-2 font-serif text-xl font-semibold text-brand">
-            Instructor of Record
+            Course Instructor
           </h2>
           <ul className="mt-4 space-y-3">
             {INSTRUCTOR.map((item) => (
@@ -52,27 +59,24 @@ function Teaching() {
 
         <section>
           <h2 className="border-b border-border pb-2 font-serif text-xl font-semibold text-brand">
-            Graduate Student Instructor
+            Teaching Assistant
           </h2>
-          <ul className="mt-4 space-y-3">
-            {ASSISTANT.map((item) => (
-              <li key={item.course}>
-                <p className="text-foreground/90">{item.course}</p>
-                <p className="text-sm text-muted-foreground">{item.meta}</p>
-              </li>
+          <h3 className="mt-4 font-serif text-lg font-semibold text-foreground">
+            University of Massachusetts Amherst
+          </h3>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-foreground/90">
+            {UMASS_ASSISTANT.map((course) => (
+              <li key={course}>{course}</li>
             ))}
           </ul>
-        </section>
-
-        <section>
-          <h2 className="border-b border-border pb-2 font-serif text-xl font-semibold text-brand">
-            Teaching Statement
-          </h2>
-          <p className="mt-4 leading-relaxed text-foreground/90">
-            I teach economics as a set of tools for reasoning about policy trade-offs. My courses
-            emphasize careful identification, transparent data work, and the ability to explain
-            quantitative results to non-specialist audiences.
-          </p>
+          <h3 className="mt-6 font-serif text-lg font-semibold text-foreground">
+            Macau University of Science and Technology
+          </h3>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-foreground/90">
+            {MUST_ASSISTANT.map((course) => (
+              <li key={course}>{course}</li>
+            ))}
+          </ul>
         </section>
       </div>
     </SiteLayout>
