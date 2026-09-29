@@ -47,12 +47,12 @@ function Teaching() {
           <h2 className="border-b border-border pb-2 font-serif text-xl font-semibold text-brand">
             Course Instructor
           </h2>
-          <ul className="mt-4 space-y-3">
+          <h3 className="mt-4 font-serif text-lg font-semibold text-foreground">
+            University of Massachusetts Amherst
+          </h3>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-foreground/90">
             {INSTRUCTOR.map((item) => (
-              <li key={item.course}>
-                <p className="text-foreground/90">{item.course}</p>
-                <p className="text-sm text-muted-foreground">{item.meta}</p>
-              </li>
+              <li key={item.course}>{item.course}</li>
             ))}
           </ul>
         </section>
