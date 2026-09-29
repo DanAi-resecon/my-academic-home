@@ -50,6 +50,14 @@ const SECTIONS = [
     ],
   },
   {
+    heading: "Selected Presentations",
+    items: [
+      { primary: "NAREA Annual Meeting; AERE Summer Conference; UMass Energy Transition Symposium", meta: "2025" },
+      { primary: "NAREA Annual Meeting; Sloan/Haas Summer School in Environmental and Energy Economics", meta: "2024" },
+      { primary: "UMass Energy Transition Symposium", meta: "2023" },
+    ],
+  },
+  {
     heading: "Affiliation",
     items: [
       { primary: "Elevating Equity Values in the Transition of the Energy System (ELEVATE), U.S. National Science Foundation", meta: "" },
