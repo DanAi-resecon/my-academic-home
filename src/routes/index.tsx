@@ -10,13 +10,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Dan Ai is a Ph.D. candidate in Resource Economics at the University of Massachusetts Amherst, affiliated with the NSF-funded ELEVATE program.",
+          "Dan Ai is a Ph.D. candidate in Resource Economics at the University of Massachusetts Amherst, an applied microeconomist specializing in energy and environmental economics, affiliated with the NSF-funded ELEVATE program.",
       },
       { property: "og:title", content: "Dan Ai | Resource Economics" },
       {
         property: "og:description",
         content:
-          "Academic homepage of Dan Ai: Ph.D. candidate in Resource Economics at UMass Amherst, working on the energy transition.",
+          "Academic homepage of Dan Ai: Ph.D. candidate in Resource Economics at UMass Amherst, studying electricity markets and grid reliability in the energy transition.",
       },
       { property: "og:type", content: "profile" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -40,11 +40,13 @@ function Bio() {
         <div className="space-y-5">
           <h2 className="font-serif text-2xl font-semibold text-brand">Welcome to my website.</h2>
           <p className="leading-relaxed text-foreground/90">
-            I am a Ph.D. candidate in Resource Economics at the University of Massachusetts Amherst.
-            I'm also affiliated with ELEVATE, an NSF funded research program focused on the technical,
-            social, and climate challenges of the energy transition. My interdisciplinary background
-            includes a bachelor's degree in Computer Science and a master's degree in Applied Economics
-            from China before joining UMass Amherst.
+            I am a Ph.D. candidate in Resource Economics at the University of Massachusetts
+            Amherst. I am an applied microeconomist specializing in energy and environmental
+            economics. In my work, I use causal inference and economic theory to better understand
+            how new sources of electricity demand and supply affect market outcomes. I also
+            analyze power outage datasets to examine how grid reliability interacts with
+            climate-related stresses to shape health and economic well-being across populations
+            and places.
           </p>
           <p className="leading-relaxed text-foreground/90">
             You can view my{" "}
