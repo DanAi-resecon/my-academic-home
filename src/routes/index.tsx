@@ -49,6 +49,12 @@ function Bio() {
             and places.
           </p>
           <p className="leading-relaxed text-foreground/90">
+            I'm also affiliated with ELEVATE, an NSF funded research program focused on the
+            technical, social, and climate challenges of the energy transition. My
+            interdisciplinary background includes a bachelor's degree in Computer Science and a
+            master's degree in Applied Economics from China before joining UMass Amherst.
+          </p>
+          <p className="leading-relaxed text-foreground/90">
             You can view my{" "}
             <Link to="/cv" className="text-brand underline underline-offset-2">
               CV
