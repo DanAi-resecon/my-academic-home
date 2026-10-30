@@ -9,8 +9,8 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- Store the downloadable CV through a Lovable Assets pointer so the uploaded PDF remains available without committing a binary file.
+- The user requested direct CV replacement and publishing. Keep the downloadable CV at public/dan-ai-cv.pdf and preserve the CV page text when replacing the file.
 - Prerender all four public content routes to directory index files; GitHub Pages serves static HTML and has no app server.
 - For GitHub Pages builds, disable TanStack's built-in prerender and render pages in scripts/github-pages.mjs from the built Node server; the built-in prerender hangs with the node-server preset outside Lovable.
 - GitHub Pages CI uses the Node export preset and publishes only dist/client; keep the default Lovable target for preview and Lovable publishing.
-- Materialize pointer-backed photo and CV into the generated Pages artifact using scripts/github-pages.mjs, never into tracked source; their relative URLs need local files on external hosting.
+- Materialize the pointer-backed photo into the generated Pages artifact using scripts/github-pages.mjs, never into tracked source; its relative URL needs a local file on external hosting. Vite copies the directly hosted CV from public/ into the artifact.
