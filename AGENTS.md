@@ -10,3 +10,6 @@
 <!-- LOVABLE:END -->
 
 - Store the downloadable CV through a Lovable Assets pointer so the uploaded PDF remains available without committing a binary file.
+- Prerender all four public content routes to directory index files; GitHub Pages serves static HTML and has no app server.
+- GitHub Pages CI uses the Node export preset and publishes only dist/client; keep the default Lovable target for preview and Lovable publishing.
+- Materialize pointer-backed photo and CV into the generated Pages artifact using scripts/github-pages.mjs, never into tracked source; their relative URLs need local files on external hosting.
