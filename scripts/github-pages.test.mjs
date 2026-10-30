@@ -13,3 +13,8 @@ test("asset downloads cannot escape the artifact directory", () => {
 test("external URLs are rejected rather than copied into arbitrary locations", () => {
   assert.throws(() => assetDestination("/tmp/pages", "https://example.com/cv.pdf"), /pointer/);
 });
+test("every page is written as a folder index so GitHub Pages serves clean URLs", async () => {
+  const { pageFile } = await import("./github-pages.mjs");
+  assert.equal(pageFile("/tmp/pages", "/"), "/tmp/pages/index.html");
+  assert.equal(pageFile("/tmp/pages", "/cv"), "/tmp/pages/cv/index.html");
+});

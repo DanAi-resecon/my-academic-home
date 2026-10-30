@@ -6,9 +6,11 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+const githubPages = process.env['GITHUB_PAGES'] === "true";
+
 export default defineConfig({
-  // CI renders with Node only during export; GitHub serves the client files.
-  ...(process.env['GITHUB_PAGES'] === "true"
+  // CI builds a Node server only so scripts/github-pages.mjs can render static HTML from it.
+  ...(githubPages
     ? { nitro: { preset: "node-server", output: { dir: "dist", publicDir: "dist/client", serverDir: "dist/server" } } }
     : {}),
   tanstackStart: {
@@ -16,6 +18,10 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
     pages: [{ path: "/" }, { path: "/cv" }, { path: "/research" }, { path: "/teaching" }],
-    prerender: { enabled: true, autoStaticPathsDiscovery: false, crawlLinks: false, failOnError: true },
+    // The built-in prerender hangs with the node-server preset outside Lovable, so GitHub Pages
+    // renders the pages in scripts/github-pages.mjs instead.
+    prerender: githubPages
+      ? { enabled: false }
+      : { enabled: true, autoStaticPathsDiscovery: false, crawlLinks: false, failOnError: true },
   },
 });

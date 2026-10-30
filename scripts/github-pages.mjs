@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile, stat } from "node:fs/promises";
 import { resolve, dirname, relative, isAbsolute } from "node:path";
 import { fileURLToPath } from "node:url";
+import { spawn } from "node:child_process";
 
 export const routes = ["/", "/cv", "/research", "/teaching"];
 export const domain = "danai-econ.com";
@@ -20,10 +21,43 @@ export function assetDestination(root, url) {
   return destination;
 }
 
+export function pageFile(root, route) {
+  return resolve(root, `.${route}`, "index.html");
+}
+
+// Start the built Node server, save each page as static HTML, then stop it.
+export async function renderPages() {
+  const port = 4173 + Math.floor(Math.random() * 1000);
+  const server = spawn(process.execPath, [resolve(project, "dist/server/index.mjs")], {
+    env: { ...process.env, PORT: String(port), HOST: "127.0.0.1" },
+    stdio: ["ignore", "inherit", "inherit"],
+  });
+  try {
+    const base = `http://127.0.0.1:${port}`;
+    for (let attempt = 0; ; attempt++) {
+      try { await fetch(base); break; } catch {
+        if (attempt > 100) throw new Error("Server did not start");
+        await new Promise((r) => setTimeout(r, 200));
+      }
+    }
+    for (const route of routes) {
+      const response = await fetch(base + route, { redirect: "error", signal: AbortSignal.timeout(30000) });
+      if (!response.ok) throw new Error(`Render failed: ${route} (${response.status})`);
+      const html = await response.text();
+      if (!html.includes("</html>")) throw new Error(`Incomplete page: ${route}`);
+      const file = pageFile(output, route);
+      await mkdir(dirname(file), { recursive: true });
+      await writeFile(file, html);
+    }
+  } finally {
+    server.kill();
+  }
+}
+
 export async function preparePages() {
+  await renderPages();
   for (const route of routes) {
-    const html = resolve(output, `.${route}`, "index.html");
-    if ((await stat(html)).size === 0) throw new Error(`Empty prerendered page: ${route}`);
+    if ((await stat(pageFile(output, route))).size === 0) throw new Error(`Empty page: ${route}`);
   }
   for (const filename of ["portrait-dan.jpg.asset.json", "dan-ai-cv.pdf.asset.json"]) {
     const pointer = JSON.parse(await readFile(resolve(project, "src/assets", filename), "utf8"));
