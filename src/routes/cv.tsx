@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
-import cvAsset from "@/assets/dan-ai-cv.pdf.asset.json";
 
 export const Route = createFileRoute("/cv")({
   head: () => ({
@@ -78,7 +77,7 @@ function CV() {
         <p className="text-foreground/90">
           Download the full version of my{" "}
           <a
-            href={cvAsset.url}
+            href="/dan-ai-cv.pdf"
             target="_blank"
             rel="noreferrer"
             className="text-brand underline underline-offset-2"
