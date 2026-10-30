@@ -59,7 +59,7 @@ export async function preparePages() {
   for (const route of routes) {
     if ((await stat(pageFile(output, route))).size === 0) throw new Error(`Empty page: ${route}`);
   }
-  for (const filename of ["portrait-dan.jpg.asset.json", "dan-ai-cv.pdf.asset.json"]) {
+  for (const filename of ["portrait-dan.jpg.asset.json"]) {
     const pointer = JSON.parse(await readFile(resolve(project, "src/assets", filename), "utf8"));
     const destination = assetDestination(output, pointer.url);
     const response = await fetch(new URL(pointer.url, assetOrigin), { redirect: "error" });
