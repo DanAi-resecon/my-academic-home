@@ -8,9 +8,9 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
   // CI renders with Node only during export; GitHub serves the client files.
-  nitro: process.env.GITHUB_PAGES === "true"
-    ? { preset: "node-server", output: { dir: "dist", publicDir: "dist/client", serverDir: "dist/server" } }
-    : undefined,
+  ...(process.env['GITHUB_PAGES'] === "true"
+    ? { nitro: { preset: "node-server", output: { dir: "dist", publicDir: "dist/client", serverDir: "dist/server" } } }
+    : {}),
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
