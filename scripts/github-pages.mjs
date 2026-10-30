@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile, stat } from "node:fs/promises";
+import { copyFile, mkdir, readFile, writeFile, stat } from "node:fs/promises";
 import { resolve, dirname, relative, isAbsolute } from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawn } from "node:child_process";
@@ -54,6 +54,15 @@ export async function renderPages() {
   }
 }
 
+// Cached pages and bookmarks still use the original CV URL. Keep it working
+// with the current PDF, without fetching or publishing the superseded CV.
+export async function preserveCvDownload(root) {
+  const legacyPointer = JSON.parse(await readFile(resolve(project, "src/assets/dan-ai-cv.pdf.asset.json"), "utf8"));
+  const destination = assetDestination(root, legacyPointer.url);
+  await mkdir(dirname(destination), { recursive: true });
+  await copyFile(resolve(root, "dan-ai-cv.pdf"), destination);
+}
+
 export async function preparePages() {
   await renderPages();
   for (const route of routes) {
@@ -72,6 +81,7 @@ export async function preparePages() {
     await mkdir(dirname(destination), { recursive: true });
     await writeFile(destination, bytes);
   }
+  await preserveCvDownload(output);
   await writeFile(resolve(output, "CNAME"), `${domain}\n`);
   await writeFile(resolve(output, ".nojekyll"), "");
   console.log(`GitHub Pages artifact ready: ${output} (${routes.length} pages, photo, CV)`);
