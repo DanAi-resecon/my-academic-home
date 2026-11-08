@@ -42,18 +42,18 @@ export function SiteLayout({
         </div>
       </header>
 
-      <div className="relative overflow-hidden bg-banner">
+      <div className={`relative overflow-hidden bg-banner ${bannerImage ? "aspect-[5/2]" : ""}`}>
         {bannerImage && (
           <>
             <img
               src={bannerImage}
               alt=""
-              className="absolute inset-0 h-full w-full object-cover object-[center_35%]"
+              className="absolute inset-0 h-full w-full object-cover object-[center_13%]"
             />
             <div className="absolute inset-0 bg-black/45" aria-hidden="true" />
           </>
         )}
-        <div className="relative mx-auto max-w-6xl px-6 py-14">
+        <div className={bannerImage ? "absolute inset-0 flex items-center justify-center px-6" : "relative mx-auto max-w-6xl px-6 py-14"}>
           <h1 className={`text-center font-serif text-5xl font-bold tracking-tight md:text-6xl ${bannerImage ? "text-white" : "text-foreground"}`}>
             {title ?? SITE_NAME}
           </h1>
