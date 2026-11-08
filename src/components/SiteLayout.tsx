@@ -10,7 +10,15 @@ const NAV = [
 
 export const SITE_NAME = "Dan Ai";
 
-export function SiteLayout({ title, children }: { title?: string; children: ReactNode }) {
+export function SiteLayout({
+  title,
+  bannerImage,
+  children,
+}: {
+  title?: string;
+  bannerImage?: string;
+  children: ReactNode;
+}) {
   return (
     <div className="min-h-screen bg-background">
       <header className="bg-brand">
@@ -34,9 +42,19 @@ export function SiteLayout({ title, children }: { title?: string; children: Reac
         </div>
       </header>
 
-      <div className="bg-banner">
-        <div className="mx-auto max-w-6xl px-6 py-14">
-          <h1 className="text-center font-serif text-5xl font-bold tracking-tight text-foreground md:text-6xl">
+      <div className="relative overflow-hidden bg-banner">
+        {bannerImage && (
+          <>
+            <img
+              src={bannerImage}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover object-[center_35%]"
+            />
+            <div className="absolute inset-0 bg-black/45" aria-hidden="true" />
+          </>
+        )}
+        <div className="relative mx-auto max-w-6xl px-6 py-14">
+          <h1 className={`text-center font-serif text-5xl font-bold tracking-tight md:text-6xl ${bannerImage ? "text-white" : "text-foreground"}`}>
             {title ?? SITE_NAME}
           </h1>
         </div>
