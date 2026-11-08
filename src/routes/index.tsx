@@ -45,7 +45,7 @@ function Bio() {
             economics. In my work, I use causal inference and economic theory to better understand
             how new sources of electricity demand and supply affect market outcomes. I also
             analyze power outage datasets to examine how grid reliability interacts with
-            climate-related stresses to shape health and economic well-being across populations
+            extreme weather to shape health and economic outcomes across populations
             and places.
           </p>
           <p className="leading-relaxed text-foreground/90">
