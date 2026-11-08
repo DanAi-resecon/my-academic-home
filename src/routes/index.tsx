@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
 
 function Bio() {
   return (
-    <SiteLayout>
+    <SiteLayout bannerImage="/bio-banner.png" bannerPosition="55% 65%">
       <div className="grid gap-12 md:grid-cols-[minmax(0,380px)_minmax(0,1fr)]">
         <img
           src={portrait}
