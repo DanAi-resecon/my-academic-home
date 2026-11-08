@@ -28,12 +28,14 @@ const PUBLICATIONS = [
     year: "2026",
     title: "Heat, Power Outages, and Mortality in the United States",
     journal: "Journal of Environmental Economics and Management, 137, 103275",
+    url: "https://doi.org/10.1016/j.jeem.2025.103275",
   },
   {
     authors: "Hsiao, C.Y., D. Ai, X. Wei, and N. Sheng",
     year: "2021",
     title: "The Contagious Effect of China’s Energy Policy on Stock Markets: The Case of Solar PV Industry",
     journal: "Renewable Energy, 164, 74–86",
+    url: "https://doi.org/10.1016/j.renene.2020.08.161",
   },
 ];
 
@@ -66,7 +68,7 @@ const WORKING_PAPERS: Paper[] = [
 const IN_PROGRESS: Paper[] = [
   {
     title: "Data Centers and Water Temperatures",
-    coauthors: "With Yingyi Jin, Christine L. Crago, David Keiser, and Tihitina Andarge",
+    coauthors: "With Tihitina Andarge, Christine L. Crago, Yingyi Jin, and David Keiser",
   },
   {
     title: "Do Data Centers Warm Their Neighborhoods?",
@@ -107,7 +109,11 @@ function Research() {
             {PUBLICATIONS.map((publication) => (
               <li key={publication.title}>
                 <p className="text-foreground/90">
-                  {publication.authors} ({publication.year}). “{publication.title}.”
+                  {publication.authors} ({publication.year}). “
+                  <a href={publication.url} className="text-brand underline underline-offset-4 hover:opacity-80">
+                    {publication.title}
+                  </a>
+                  .”
                 </p>
                 <p className="text-sm italic text-muted-foreground">{publication.journal}.</p>
               </li>
