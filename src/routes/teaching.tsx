@@ -53,7 +53,7 @@ const TEACHING = [
 
 function Teaching() {
   return (
-    <SiteLayout title="Teaching">
+    <SiteLayout title="Teaching" bannerImage="/teaching-banner.png" bannerPosition="center 65%">
       <div className="max-w-3xl space-y-12">
         {TEACHING.map((section) => (
           <section key={section.role}>
