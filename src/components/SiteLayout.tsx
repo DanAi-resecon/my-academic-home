@@ -46,14 +46,20 @@ export function SiteLayout({
         </div>
       </header>
 
-      <div className="relative overflow-hidden bg-banner">
+      <div className={`relative overflow-hidden bg-banner ${bannerImage ? "h-[clamp(160px,24vw,320px)]" : ""}`}>
         {bannerImage && (
           <>
             <img
               src={bannerImage}
               alt=""
-              className="block h-auto w-full"
+              aria-hidden="true"
+              className="absolute inset-0 h-full w-full scale-110 object-cover blur-2xl"
               style={{ objectPosition: bannerPosition }}
+            />
+            <img
+              src={bannerImage}
+              alt=""
+              className="absolute inset-0 h-full w-full object-contain object-center"
             />
             <div className="absolute inset-0 bg-black/45" aria-hidden="true" />
           </>
