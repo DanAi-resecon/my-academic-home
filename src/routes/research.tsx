@@ -99,7 +99,7 @@ function PaperDetails({ paper }: { paper: Paper }) {
 
 function Research() {
   return (
-    <SiteLayout title="Research">
+    <SiteLayout title="Research" bannerImage="/research-banner.jpg">
       <div className="max-w-3xl space-y-12">
         <section>
           <h2 className="border-b border-border pb-2 font-serif text-xl font-semibold text-brand">
