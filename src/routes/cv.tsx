@@ -24,7 +24,7 @@ export const Route = createFileRoute("/cv")({
 
 function CV() {
   return (
-    <SiteLayout title="CV">
+    <SiteLayout title="CV" bannerImage="/cv-banner.jpg" bannerPosition="center 60%" bannerTitleAlign="left">
       <div className="max-w-3xl">
         <p className="text-foreground/90">
           Download the full version of my{" "}
