@@ -52,14 +52,8 @@ export function SiteLayout({
             <img
               src={bannerImage}
               alt=""
-              aria-hidden="true"
-              className="absolute inset-0 h-full w-full scale-110 object-cover blur-2xl"
+              className="absolute inset-0 h-full w-full object-cover"
               style={{ objectPosition: bannerPosition }}
-            />
-            <img
-              src={bannerImage}
-              alt=""
-              className="absolute inset-0 h-full w-full object-contain object-center"
             />
             <div className="absolute inset-0 bg-black/45" aria-hidden="true" />
           </>
