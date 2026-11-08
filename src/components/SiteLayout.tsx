@@ -13,10 +13,12 @@ export const SITE_NAME = "Dan Ai";
 export function SiteLayout({
   title,
   bannerImage,
+  bannerPosition = "center 28%",
   children,
 }: {
   title?: string;
   bannerImage?: string;
+  bannerPosition?: string;
   children: ReactNode;
 }) {
   return (
@@ -48,7 +50,8 @@ export function SiteLayout({
             <img
               src={bannerImage}
               alt=""
-              className="absolute inset-0 h-full w-full object-cover object-[center_28%]"
+              className="absolute inset-0 h-full w-full object-cover"
+              style={{ objectPosition: bannerPosition }}
             />
             <div className="absolute inset-0 bg-black/45" aria-hidden="true" />
           </>
